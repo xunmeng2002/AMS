@@ -1,0 +1,7 @@
+<pumplist>
+	<pump dest="./Source/DataStruct/DataType.h" tpl="./Source/DataStruct/DataType.h.tpl" model="./Model/Mdb/DataType.xml"/>
+	<pump dest="./Source/DataStruct/DataType.cpp" tpl="./Source/DataStruct/DataType.cpp.tpl" model="./Model/Mdb/DataType.xml"/>
+	
+	<pump dest="./Source/DataStruct/DataStruct.h" tpl="./Source/DataStruct/DataStruct.h.tpl" model="./Model/Mdb/Tables.xml ./Model/Mdb/DataType.xml"/>
+	<pump dest="./Source/DataStruct/DataStruct.cpp" tpl="./Source/DataStruct/DataStruct.cpp.tpl" model="./Model/Mdb/Tables.xml ./Model/Mdb/DataType.xml"/>
+</pumplist>

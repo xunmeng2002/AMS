@@ -1,0 +1,34 @@
+<types>
+	<bools>
+		<bool name="Bool"/>
+	</bools>
+	<ints>
+		<int name="BrokerID"/>
+	</ints>
+	<int64s>
+	</int64s>
+	<doubles>
+		<double name="Price"/>
+	</doubles>
+	<strings>
+		<string name="AccountID" len="32"/>
+		<string name="Date" len="9"/>
+		<string name="OrgID" len="16"/>
+		<string name="AccountName" len="128"/>
+		<string name="CurrencyID" len="8"/>
+	</strings>
+	<enums>
+		<enum name="AccountType" prefix="AT">
+			<item name="Primary" value="0"/>
+			<item name="Sub" value="1"/>
+		</enum>
+		<enum name="AccountClass" prefix="AC">
+			<item name="Future" value="0"/>
+			<item name="Security" value="1"/>
+		</enum>
+		<enum name="AccountStatus" prefix="AS">
+			<item name="Normal" value="0"/>
+			<item name="Forbbiden" value="1"/>
+		</enum>
+	</enums>
+</types>

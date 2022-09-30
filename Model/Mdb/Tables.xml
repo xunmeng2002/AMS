@@ -1,0 +1,29 @@
+<tables>
+	<table name="Account">
+		<fields>
+			<field name="OrgID" type="OrgID" desc="机构代码"/>
+			<field name="BrokerID" type="BrokerID" desc="经纪公司代码"/>
+			<field name="AccountID" type="AccountID" desc="账户代码"/>
+			<field name="AccountName" type="AccountName" desc="账户名称"/>
+			<field name="AccountClass" type="AccountClass" desc="账户类别"/>
+			<field name="AccountType" type="AccountType" desc="账户类型"/>
+			<field name="PrimaryAccountID" type="AccountID" desc="主账号代码"/>
+			<field name="AccountStatus" type="AccountStatus" desc="账户状态"/>
+			<field name="CurrencyID" type="CurrencyID" desc="币种代码"/>
+			<field name="DeleteFlag" type="Bool" desc="删除标志"/>
+		</fields>
+		<primarykeys>
+			<primarykey>
+				<field name="BrokerID"/>
+				<field name="AccountID"/>
+				<field name="AccountClass"/>
+			</primarykey>
+		</primarykeys>
+		<indexes>
+			<index name="PrimaryAccount">
+				<field name="BrokerID"/>
+				<field name="PrimaryAccountID"/>
+			</index>
+		</indexes>
+	</table>
+</tables>

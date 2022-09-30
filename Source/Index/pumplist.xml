@@ -1,0 +1,5 @@
+<pumplist>
+	<pump dest="./Source/Index/IndexComp.h" tpl="./Source/Index/IndexComp.h.tpl" model="./Model/Mdb/Tables.xml"/>
+	<pump dest="./Source/Index/IndexComp.cpp" tpl="./Source/Index/IndexComp.cpp.tpl" model="./Model/Mdb/Tables.xml ./Model/Mdb/DataType.xml"/>
+	
+</pumplist>
