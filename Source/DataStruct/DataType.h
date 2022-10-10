@@ -15,17 +15,17 @@ typedef char CCurrencyIDType[8];
 
 enum class CAccountTypeType : char
 {
-	AT_Primary = '0',
-	AT_Sub = '1',
+	Primary = '0',
+	Sub = '1',
 };
 enum class CAccountClassType : char
 {
-	AC_Future = '0',
-	AC_Security = '1',
+	Future = '0',
+	Security = '1',
 };
 enum class CAccountStatusType : char
 {
-	AS_Normal = '0',
-	AS_Forbbiden = '1',
+	Normal = '0',
+	Forbbiden = '1',
 };
 

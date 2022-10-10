@@ -35,9 +35,8 @@ typedef char C!!@name!!Type[!!@len!!];
 !!travel!!
 enum class C!!@name!!Type : char
 {
-!!prefix=@prefix!!
 !!travel!!
-	!!$prefix!!_!!@name!! = '!!@value!!',
+	!!@name!! = '!!@value!!',
 !!leave!!
 };
 !!leave!!

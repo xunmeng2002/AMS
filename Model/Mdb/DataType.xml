@@ -18,15 +18,15 @@
 		<string name="CurrencyID" len="8"/>
 	</strings>
 	<enums>
-		<enum name="AccountType" prefix="AT">
+		<enum name="AccountType">
 			<item name="Primary" value="0"/>
 			<item name="Sub" value="1"/>
 		</enum>
-		<enum name="AccountClass" prefix="AC">
+		<enum name="AccountClass">
 			<item name="Future" value="0"/>
 			<item name="Security" value="1"/>
 		</enum>
-		<enum name="AccountStatus" prefix="AS">
+		<enum name="AccountStatus">
 			<item name="Normal" value="0"/>
 			<item name="Forbbiden" value="1"/>
 		</enum>
