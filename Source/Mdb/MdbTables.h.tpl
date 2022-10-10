@@ -22,13 +22,13 @@ public:
 public:
 !!entry primarykeys!!
 !!travel!!
-	!!$tableName!!PrimaryKeyFor!!@name!! m_!!@name!!PrimaryKey;
+	!!$tableName!!PrimaryKey!!@name!! m_!!@name!!PrimaryKey;
 !!leave!!
 !!leave!!
 
 !!entry indexes!!
 !!travel!!
-	!!$tableName!!IndexFor!!@name!! m_!!@name!!Index;
+	!!$tableName!!Index!!@name!! m_!!@name!!Index;
 !!leave!!
 !!leave!!
 

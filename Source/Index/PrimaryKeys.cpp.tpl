@@ -48,23 +48,23 @@ using std::unordered_set;
 !!leave!!
 !!entry primarykeys!!
 !!travel!!
-!!$tableName!!PrimaryKeyFor!!@name!!::!!$tableName!!PrimaryKeyFor!!@name!!(size_t buckets)
+!!$tableName!!PrimaryKey!!@name!!::!!$tableName!!PrimaryKey!!@name!!(size_t buckets)
 	:m_Index(buckets), m_Select!!$tableName!!()
 {
 }
-bool !!$tableName!!PrimaryKeyFor!!@name!!::Insert(!!$tableName!!* const record)
+bool !!$tableName!!PrimaryKey!!@name!!::Insert(!!$tableName!!* const record)
 {
 	return m_Index.insert(record).second;
 }
-bool !!$tableName!!PrimaryKeyFor!!@name!!::Erase(!!$tableName!!* const  record)
+bool !!$tableName!!PrimaryKey!!@name!!::Erase(!!$tableName!!* const  record)
 {
 	return  m_Index.erase(record) > 0;
 }
-bool !!$tableName!!PrimaryKeyFor!!@name!!::CheckUpdate(const !!$tableName!!* const oldRecord, const !!$tableName!!* const newRecord)
+bool !!$tableName!!PrimaryKey!!@name!!::CheckUpdate(const !!$tableName!!* const oldRecord, const !!$tableName!!* const newRecord)
 {
-	return !!$tableName!!EqualFor!!@name!!()(oldRecord, newRecord);
+	return !!$tableName!!EqualFor!!@name!!PrimaryKey()(oldRecord, newRecord);
 }
-const !!$tableName!!* !!$tableName!!PrimaryKeyFor!!@name!!::Select(!!travel!!!!fieldType=fieldTypes[@name]!!!!if $pumpid >= '1':!!!!inc indent!!, !!dec indent!!const C!!$fieldType!!Type& !!@name!!!!leave!!)
+const !!$tableName!!* !!$tableName!!PrimaryKey!!@name!!::Select(!!travel!!!!fieldType=fieldTypes[@name]!!!!if $pumpid >= '1':!!!!inc indent!!, !!dec indent!!const C!!$fieldType!!Type& !!@name!!!!leave!!)
 {
 !!travel!!
 !!fieldType=fieldTypes[@name]!!

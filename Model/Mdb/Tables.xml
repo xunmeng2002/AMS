@@ -18,6 +18,11 @@
 				<field name="AccountID"/>
 				<field name="AccountClass"/>
 			</primarykey>
+			<primarykey name="PrimaryAccount">
+				<field name="BrokerID"/>
+				<field name="PrimaryAccountID"/>
+				<field name="AccountClass"/>
+			</primarykey>
 		</primarykeys>
 		<indexes>
 			<index name="PrimaryAccount">

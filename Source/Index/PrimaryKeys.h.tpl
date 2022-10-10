@@ -15,11 +15,11 @@
 !!leave!!
 !!entry primarykeys!!
 !!travel!!
-class !!$tableName!!PrimaryKeyFor!!@name!!
+class !!$tableName!!PrimaryKey!!@name!!
 {
 	friend class !!$tableName!!Table;
 public:
-	!!$tableName!!PrimaryKeyFor!!@name!!(size_t buckets = 1000);
+	!!$tableName!!PrimaryKey!!@name!!(size_t buckets = 1000);
 	bool Insert(!!$tableName!!* const record);
 	bool Erase(!!$tableName!!* const record);
 	bool CheckUpdate(const !!$tableName!!* const oldRecord, const !!$tableName!!* const newRecord);
@@ -27,7 +27,7 @@ public:
 
 private:
 	!!$tableName!! m_Select!!$tableName!!;
-	std::unordered_set<!!$tableName!!*, !!$tableName!!HashFor!!@name!!, !!$tableName!!EqualFor!!@name!!> m_Index;
+	std::unordered_set<!!$tableName!!*, !!$tableName!!HashFor!!@name!!PrimaryKey, !!$tableName!!EqualFor!!@name!!PrimaryKey> m_Index;
 };
 
 !!leave!!

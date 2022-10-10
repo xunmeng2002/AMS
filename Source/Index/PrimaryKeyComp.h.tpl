@@ -7,11 +7,11 @@
 !!tableName = @name!!
 !!entry primarykeys!!
 !!travel!!
-struct !!$tableName!!EqualFor!!@name!!
+struct !!$tableName!!EqualFor!!@name!!PrimaryKey
 {
 	bool operator()(const !!$tableName!!* const left, const !!$tableName!!* const right) const;
 };
-struct !!$tableName!!HashFor!!@name!!
+struct !!$tableName!!HashFor!!@name!!PrimaryKey
 {
 	size_t operator()(const !!$tableName!!* const record) const;
 };

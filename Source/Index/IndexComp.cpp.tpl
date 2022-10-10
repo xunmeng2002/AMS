@@ -49,11 +49,11 @@ using std::string;
 !!leave!!
 !!entry indexes!!
 !!travel!!
-bool !!$tableName!!EqualFor!!@name!!::operator()(const !!$tableName!!* const left, const !!$tableName!!* const right) const
+bool !!$tableName!!EqualFor!!@name!!Index::operator()(const !!$tableName!!* const left, const !!$tableName!!* const right) const
 {
 	return !!travel!!!!if $pumpid >= '1':!!!!inc indent!!&& !!dec indent!!!!type = fieldTypes[@name]!!!!if type == 'string':!!!!inc indent!!strcmp(left->!!@name!!, right->!!@name!!) == 0!!dec indent!!!!else:!!!!inc indent!!left->!!@name!! == right->!!@name!! !!dec indent!!!!leave!!;
 }
-bool !!$tableName!!LessFor!!@name!!::operator()(const !!$tableName!!* const left, const !!$tableName!!* const right) const
+bool !!$tableName!!LessFor!!@name!!Index::operator()(const !!$tableName!!* const left, const !!$tableName!!* const right) const
 {
 !!travel!!
 !!type = fieldTypes[@name]!!

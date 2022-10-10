@@ -3,9 +3,9 @@
 		<bool name="Bool"/>
 	</bools>
 	<ints>
-		<int name="BrokerID"/>
 	</ints>
 	<int64s>
+		<int64 name="BrokerID"/>
 	</int64s>
 	<doubles>
 		<double name="Price"/>

@@ -10,7 +10,7 @@ using std::multiset;
 !!tableName = @name!!
 !!entry indexes!!
 !!travel!!
-class !!$tableName!!IndexFor!!@name!!
+class !!$tableName!!Index!!@name!!
 {
 public:
 	void Insert(!!$tableName!!* const record);
@@ -18,7 +18,7 @@ public:
 	bool NeedUpdate(const !!$tableName!!* const oldRecord, const !!$tableName!!* const newRecord);
 
 private:
-	multiset<!!$tableName!!*, !!$tableName!!LessFor!!@name!!> m_Index;
+	multiset<!!$tableName!!*, !!$tableName!!LessFor!!@name!!Index> m_Index;
 };
 !!leave!!
 !!leave!!
