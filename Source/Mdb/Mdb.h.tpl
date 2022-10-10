@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 #include "MdbTables.h"
 
 
@@ -10,6 +10,10 @@ public:
 	void Clear();
 
 public:
-	AccountTable* t_Account;
+!!entry tables!!
+!!travel!!
+	!!@name!!Table* t_!!@name!!;
+!!leave!!
+!!leave!!
 };
 
