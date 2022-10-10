@@ -21,12 +21,13 @@ void !!@name!!Table::Free(!!@name!!* record)
 bool !!@name!!Table::Insert(!!@name!!* record)
 {
 !!entry primarykeys!!
-!!travel!!
-	if (!m_!!@name!!PrimaryKey.Insert(record))
+	if (!!travel!!!!if $pumpid >= '1':!!!!inc indent!! && !!dec indent!!(!m_!!@name!!PrimaryKey.CheckInsert(record))!!leave!!)
 	{
 		printf("!!$tableName!!Table Insert Failed for !!$tableName!!:[%s]\n", record->GetString());
 		return false;
 	}
+!!travel!!
+	m_!!@name!!PrimaryKey.Insert(record);
 !!leave!!
 !!leave!!
 
@@ -106,8 +107,7 @@ void !!@name!!Table::Dump(const char* dir)
 	char buff[4096] = { 0 };
 	for (auto it = m_DefaultPrimaryKey.m_Index.begin(); it != m_DefaultPrimaryKey.m_Index.end(); ++it)
 	{
-		fprintf(dumpFile, "%s\n",
-			(*it)->GetString());
+		fprintf(dumpFile, "%s\n", (*it)->GetString());
 	}
 	fclose(dumpFile);
 }

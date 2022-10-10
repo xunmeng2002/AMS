@@ -22,6 +22,7 @@ public:
 	!!$tableName!!PrimaryKey!!@name!!(size_t buckets = 1000);
 	bool Insert(!!$tableName!!* const record);
 	bool Erase(!!$tableName!!* const record);
+	bool CheckInsert(!!$tableName!!* const record);
 	bool CheckUpdate(const !!$tableName!!* const oldRecord, const !!$tableName!!* const newRecord);
 	const !!$tableName!!* Select(!!travel!!!!fieldType=fieldTypes[@name]!!!!if $pumpid >= '1':!!!!inc indent!!, !!dec indent!!const C!!$fieldType!!Type& !!@name!!!!leave!!);
 

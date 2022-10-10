@@ -17,7 +17,7 @@ void PrepareAccount(Account* account, int index)
 	account->AccountType = CAccountTypeType::Primary;
 	strcpy(account->AccountName, to_string(index).c_str());
 	account->AccountStatus = CAccountStatusType::Normal;
-	strcpy(account->PrimaryAccountID, to_string(index).c_str());
+	strcpy(account->PrimaryAccountID, to_string(index + 1).c_str());
 	strcpy(account->CurrencyID, "CNY");
 }
 
@@ -32,6 +32,11 @@ int main()
 		PrepareAccount(account, i);
 		mdb->t_Account->Insert(account);
 	}
+	{
+		auto account = mdb->t_Account->Alloc();
+		PrepareAccount(account, 1);
+		mdb->t_Account->Insert(account);
+	}
 
 	auto dateTime = GetLocalDate();
 	char path[128] = { 0 };
@@ -40,7 +45,7 @@ int main()
 	auto ret = mkdir(path);
 	if (ret != 0)
 	{
-		printf("_mkdir Failed for: %s, ret:%d\n", path, ret);
+		printf("mkdir Failed for: %s, ret:%d\n", path, ret);
 	}
 
 	mdb->Dump(dateTime.c_str());
@@ -52,6 +57,12 @@ int main()
 		printf("Account: %s\n", account->GetDebugString());
 	}
 
+	auto account2 = mdb->t_Account->m_PrimaryAccountPrimaryKey.Select(2, CAccountIDType("3"), CAccountClassType::Future);
+	if (account2)
+	{
+		printf("Account: %s\n", account2->GetString());
+		printf("Account: %s\n", account2->GetDebugString());
+	}
 
 	return 0;
 }

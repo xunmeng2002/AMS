@@ -60,6 +60,10 @@ bool !!$tableName!!PrimaryKey!!@name!!::Erase(!!$tableName!!* const  record)
 {
 	return  m_Index.erase(record) > 0;
 }
+bool !!$tableName!!PrimaryKey!!@name!!::CheckInsert(!!$tableName!!* const record)
+{
+	return m_Index.find(record) == m_Index.end();
+}
 bool !!$tableName!!PrimaryKey!!@name!!::CheckUpdate(const !!$tableName!!* const oldRecord, const !!$tableName!!* const newRecord)
 {
 	return !!$tableName!!EqualFor!!@name!!PrimaryKey()(oldRecord, newRecord);
