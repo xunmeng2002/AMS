@@ -30,3 +30,20 @@ bool AccountLessForPrimaryAccount::operator()(const Account* const left, const A
 	return false;
 };
 
+bool AccountEqualForBroker::operator()(const Account* const left, const Account* const right) const
+{
+	return left->BrokerID == right->BrokerID ;
+}
+bool AccountLessForBroker::operator()(const Account* const left, const Account* const right) const
+{
+	if (left->BrokerID < right->BrokerID)
+	{
+		return true;
+	}
+	else if (left->BrokerID > right->BrokerID)
+	{
+		return false;
+	}
+	return false;
+};
+

@@ -2,4 +2,6 @@
 	<pump dest="./Source/Index/IndexComp.h" tpl="./Source/Index/IndexComp.h.tpl" model="./Model/Mdb/Tables.xml"/>
 	<pump dest="./Source/Index/IndexComp.cpp" tpl="./Source/Index/IndexComp.cpp.tpl" model="./Model/Mdb/Tables.xml ./Model/Mdb/DataType.xml"/>
 	
+	<pump dest="./Source/Index/Indexes.h" tpl="./Source/Index/Indexes.h.tpl" model="./Model/Mdb/Tables.xml"/>
+	<pump dest="./Source/Index/Indexes.cpp" tpl="./Source/Index/Indexes.cpp.tpl" model="./Model/Mdb/Tables.xml"/>
 </pumplist>

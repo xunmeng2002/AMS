@@ -24,6 +24,9 @@
 				<field name="BrokerID"/>
 				<field name="PrimaryAccountID"/>
 			</index>
+			<index name="Broker">
+				<field name="BrokerID"/>
+			</index>
 		</indexes>
 	</table>
 </tables>
