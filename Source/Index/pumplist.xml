@@ -4,4 +4,10 @@
 	
 	<pump dest="./Source/Index/Indexes.h" tpl="./Source/Index/Indexes.h.tpl" model="./Model/Mdb/Tables.xml"/>
 	<pump dest="./Source/Index/Indexes.cpp" tpl="./Source/Index/Indexes.cpp.tpl" model="./Model/Mdb/Tables.xml"/>
+	
+	<pump dest="./Source/Index/PrimaryKeyComp.h" tpl="./Source/Index/PrimaryKeyComp.h.tpl" model="./Model/Mdb/Tables.xml"/>
+	<pump dest="./Source/Index/PrimaryKeyComp.cpp" tpl="./Source/Index/PrimaryKeyComp.cpp.tpl" model="./Model/Mdb/Tables.xml ./Model/Mdb/DataType.xml"/>
+	
+	<pump dest="./Source/Index/PrimaryKeys.h" tpl="./Source/Index/PrimaryKeys.h.tpl" model="./Model/Mdb/Tables.xml"/>
+	<pump dest="./Source/Index/PrimaryKeys.cpp" tpl="./Source/Index/PrimaryKeys.cpp.tpl" model="./Model/Mdb/Tables.xml ./Model/Mdb/DataType.xml"/>
 </pumplist>

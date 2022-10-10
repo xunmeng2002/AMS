@@ -1,0 +1,4 @@
+<pumplist>
+	<pump dest="./Source/Mdb/MdbTables.h" tpl="./Source/Mdb/MdbTables.h.tpl" model="./Model/Mdb/Tables.xml"/>
+	<pump dest="./Source/Mdb/MdbTables.cpp" tpl="./Source/Mdb/MdbTables.cpp.tpl" model="./Model/Mdb/Tables.xml"/>
+</pumplist>

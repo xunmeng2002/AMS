@@ -12,7 +12,7 @@
 			<field name="CurrencyID" type="CurrencyID" desc="币种代码"/>
 			<field name="DeleteFlag" type="Bool" desc="删除标志"/>
 		</fields>
-		<primarykeys>
+		<primarykeys name="Default">
 			<primarykey>
 				<field name="BrokerID"/>
 				<field name="AccountID"/>
