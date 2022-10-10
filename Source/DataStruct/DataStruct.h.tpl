@@ -14,6 +14,7 @@ public:
 !!leave!!
 	
 	const char* GetString() const;
+	const char* GetDebugString() const;
 };
 !!leave!!
 !!leave!!

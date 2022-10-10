@@ -26,5 +26,6 @@ public:
 	CBoolType DeleteFlag;
 	
 	const char* GetString() const;
+	const char* GetDebugString() const;
 };
 

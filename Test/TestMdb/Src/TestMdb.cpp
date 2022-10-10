@@ -10,6 +10,7 @@ using namespace std;
 
 void PrepareAccount(Account* account, int index)
 {
+	strcpy(account->OrgID, "Pobo");
 	account->BrokerID = index;
 	strcpy(account->AccountID, to_string(index).c_str());
 	account->AccountClass = CAccountClassType::Future;
@@ -48,9 +49,8 @@ int main()
 	if (account)
 	{
 		printf("Account: %s\n", account->GetString());
+		printf("Account: %s\n", account->GetDebugString());
 	}
-	
-	
 
 	return 0;
 }
