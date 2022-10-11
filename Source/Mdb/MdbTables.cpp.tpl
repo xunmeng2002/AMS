@@ -91,7 +91,8 @@ bool !!@name!!Table::Update(const !!@name!!* oldRecord, const !!@name!!* newReco
 	}
 !!leave!!
 !!leave!!
-
+	
+	m_MemCache.Free((!!$tableName!!*)newRecord);
 	return true;
 }
 void !!@name!!Table::Dump(const char* dir)

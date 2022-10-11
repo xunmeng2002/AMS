@@ -82,7 +82,8 @@ bool AccountTable::Update(const Account* oldRecord, const Account* newRecord)
 	{
 		m_BrokerIndex.Insert((Account*)oldRecord);
 	}
-
+	
+	m_MemCache.Free((Account*)newRecord);
 	return true;
 }
 void AccountTable::Dump(const char* dir)

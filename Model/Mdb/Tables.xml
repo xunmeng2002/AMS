@@ -28,9 +28,11 @@
 			<index name="PrimaryAccount">
 				<field name="BrokerID"/>
 				<field name="PrimaryAccountID"/>
+				<field name="CurrencyID"/>
 			</index>
 			<index name="Broker">
 				<field name="BrokerID"/>
+				<field name="AccountType"/>
 			</index>
 		</indexes>
 	</table>

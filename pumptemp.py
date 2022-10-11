@@ -329,7 +329,10 @@ for node2 in curr_node:
         curr_node = parent_map[curr_node]
     
     curr_node = parent_map[curr_node]
-    out_file.write("\n")
+    out_file.write("	\n")
+    out_file.write("	m_MemCache.Free((")
+    out_file.write("%s" % str(tableName))
+    out_file.write("*)newRecord);\n")
     out_file.write("	return true;\n")
     out_file.write("}\n")
     out_file.write("void ")
