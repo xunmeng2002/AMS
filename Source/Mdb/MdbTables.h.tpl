@@ -33,7 +33,7 @@ public:
 !!leave!!
 
 private:
-	MemCacheTemplate<Account> m_MemCache;
+	MemCacheTemplate<!!$tableName!!> m_MemCache;
 };
 
 !!leave!!

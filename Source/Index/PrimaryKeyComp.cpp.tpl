@@ -56,7 +56,7 @@ bool !!$tableName!!EqualFor!!@name!!PrimaryKey::operator()(const !!$tableName!!*
 size_t !!$tableName!!HashFor!!@name!!PrimaryKey::operator()(const !!$tableName!!* const record) const
 {
 	return !!travel!!!!type = fieldTypes[@name]!!!!if $pumpid >= '1':!!!!inc indent!! + !!dec indent!!!!if type == 'int64':!!!!inc indent!!std::hash<long long>()(record->!!@name!!)!!dec indent!!!!elif type == 'enum':!!!!inc indent!!std::hash<char>()((char)record->!!@name!!)!!dec indent!!!!else:!!!!inc indent!!std::hash<!!$type!!>()(record->!!@name!!)!!dec indent!!!!leave!!;
-};
+}
 
 !!leave!!
 !!leave!!

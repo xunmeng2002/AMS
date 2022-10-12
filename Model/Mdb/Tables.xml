@@ -36,4 +36,50 @@
 			</index>
 		</indexes>
 	</table>
+	<table name="Order">
+		<fields>
+			<field name="OrgID" type="OrgID" desc="机构代码"/>
+			<field name="BrokerID" type="BrokerID" desc="经纪公司代码"/>
+			<field name="AccountID" type="AccountID" desc="账户代码"/>
+			<field name="PrimaryAccountID" type="AccountID" desc="主账号代码"/>
+			<field name="AccountClass" type="AccountClass" desc="账户类别"/>
+			<field name="AccountType" type="AccountType" desc="账户类型"/>
+			<field name="ExchangeID" type="ExchangeID" desc="交易所代码"/>
+			<field name="InstrumentID" type="InstrumentID" desc="合约代码"/>
+			<field name="Direction" type="Direction" desc="买卖方向"/>
+			<field name="OffsetFlag" type="OffsetFlag" desc="开平标志"/>
+			<field name="HedgeFlag" type="HedgeFlag" desc="组合投机套保标志"/>
+			<field name="OrderSysID" type="OrderSysID" desc="报单编号"/>
+			<field name="OrderLocalID" type="OrderLocalID" desc="本地报单编号"/>
+			<field name="BrokerOrderID" type="BrokerOrderID" desc="柜台本地报单编号"/>
+			<field name="OrderStatus" type="OrderStatus" desc="报单状态"/>
+			<field name="OrderType" type="OrderType" desc="报单类型"/>
+			<field name="VolumeTraded" type="Volume" desc="成交数量"/>
+			<field name="VolumeTotal" type="Volume" desc="剩余数量"/>
+			<field name="InsertDate" type="Date" desc="报单日期"/>
+			<field name="InsertTime" type="Time" desc="委托时间"/>
+		</fields>
+		<primarykeys name="Default">
+			<primarykey>
+				<field name="BrokerID"/>
+				<field name="AccountID"/>
+				<field name="AccountClass"/>
+				<field name="InsertDate"/>
+				<field name="OrderLocalID"/>
+			</primarykey>
+		</primarykeys>
+		<indexes>
+			<index name="PrimaryAccount">
+				<field name="BrokerID"/>
+				<field name="PrimaryAccountID"/>
+				<field name="AccountClass"/>
+				<field name="AccountType"/>
+				<field name="OrderSysID"/>
+			</index>
+			<index name="Instrument">
+				<field name="ExchangeID"/>
+				<field name="InstrumentID"/>
+			</index>
+		</indexes>
+	</table>
 </tables>

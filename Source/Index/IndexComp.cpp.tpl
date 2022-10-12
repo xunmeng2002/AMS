@@ -73,7 +73,7 @@ bool !!$tableName!!LessFor!!@name!!Index::operator()(const !!$tableName!!* const
 !!dec indent!!
 !!leave!!
 	return false;
-};
+}
 
 !!leave!!
 !!leave!!

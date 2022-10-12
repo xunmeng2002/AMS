@@ -1,34 +1,74 @@
 <types>
 	<bools>
-		<bool name="Bool"/>
+		<bool name="Bool" desc="布尔类型"/>
 	</bools>
 	<ints>
+		<int name="Volume" desc="数量类型"/>
 	</ints>
 	<int64s>
-		<int64 name="BrokerID"/>
+		<int64 name="BrokerID" desc="经纪公司代码类型"/>
+		<int64 name="OrderLocalID" desc="本地报单编号类型"/>
 	</int64s>
 	<doubles>
-		<double name="Price"/>
+		<double name="Price" desc="价格类型"/>
 	</doubles>
 	<strings>
-		<string name="AccountID" len="32"/>
-		<string name="Date" len="9"/>
-		<string name="OrgID" len="16"/>
-		<string name="AccountName" len="128"/>
-		<string name="CurrencyID" len="8"/>
+		<string name="AccountID" len="32" desc="账号类型"/>
+		<string name="Date" len="9" desc="日期类型"/>
+		<string name="Time" len="8" desc="时间类型"/>
+		<string name="OrgID" len="16" desc="机构代码类型"/>
+		<string name="AccountName" len="128" desc="账号名称类型"/>
+		<string name="CurrencyID" len="8" desc="币种类型"/>
+		<string name="ExchangeID" len="8" desc="交易所代码类型"/>
+		<string name="InstrumentID" len="32" desc="合约代码类型"/>
+		<string name="OrderSysID" len="32" desc="系统委托编号类型"/>
+		<string name="BrokerOrderID" len="32" desc="经纪公司委托编号类型"/>
 	</strings>
 	<enums>
 		<enum name="AccountType">
-			<item name="Primary" value="0"/>
-			<item name="Sub" value="1"/>
+			<item name="Primary" value="0" desc="主账号"/>
+			<item name="Sub" value="1" desc="子账号"/>
 		</enum>
 		<enum name="AccountClass">
-			<item name="Future" value="0"/>
-			<item name="Security" value="1"/>
+			<item name="Future" value="0" desc="期货账户"/>
+			<item name="Security" value="1" desc="证券账户"/>
+			<item name="Derivative" value="2" desc="衍生品账户"/>
+			<item name="Credit" value="3" desc="信用账户"/>
 		</enum>
 		<enum name="AccountStatus">
-			<item name="Normal" value="0"/>
-			<item name="Forbbiden" value="1"/>
+			<item name="Normal" value="0" desc="启用"/>
+			<item name="Forbidden" value="1" desc="禁用"/>
+		</enum>
+		<enum name="Direction">
+			<item name="Buy" value="0" desc="买"/>
+			<item name="Sell" value="1" desc="卖"/>
+		</enum>
+		<enum name="OffsetFlag">
+			<item name="Open" value="0" desc="开仓"/>
+			<item name="Close" value="1" desc="平仓"/>
+			<item name="CloseToday" value="3" desc="平今"/>
+		</enum>
+		<enum name="HedgeFlag">
+			<item name="Speculation" value="0" desc="投机"/>
+			<item name="Arbitrage" value="1" desc="套利"/>
+			<item name="Hedge" value="2" desc="套期保值"/>
+		</enum>
+		<enum name="OrderStatus">
+			<item name="BrokerAccepted" value="0" desc="经纪公司已接受"/>
+			<item name="ExchangeAccepted" value="1" desc="交易所已接受"/>
+			<item name="PartTraded" value="2" desc="部分成交"/>
+			<item name="AllTraded" value="3" desc="全部成交"/>
+			<item name="PartTradedPartCanceled" value="4" desc="部分成交部分撤销"/>
+			<item name="Canceled" value="5" desc="撤销"/>
+			<item name="BrokerRefused" value="6" desc="经纪公司拒绝处理"/>
+			<item name="ExchangeRefused" value="7" desc="交易所拒绝处理"/>
+			<item name="OfferFailed" value="8" desc="报盘发送失败"/>
+			<item name="Unknown" value="a" desc="未知"/>
+		</enum>
+		<enum name="OrderType">
+			<item name="Normal" value="0" desc="普通单"/>
+			<item name="Swap" value="1" desc="互换单"/>
+			<item name="Combination" value="2" desc="组合报单"/>
 		</enum>
 	</enums>
 </types>

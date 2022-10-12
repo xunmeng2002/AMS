@@ -39,7 +39,7 @@ thread_local char t_DataStringBuffer[1024];
 
 !!entry tables!!
 !!travel!!
-const char* Account::GetString() const
+const char* !!@name!!::GetString() const
 {
 !!entry fields!!
 	sprintf(t_DataStringBuffer, "!!travel!!!!if $pumpid >= '1':!!!!inc indent!!, !!dec indent!!!!format = formats[@type]!!!!$format!!!!leave!!",
@@ -47,7 +47,7 @@ const char* Account::GetString() const
 	return t_DataStringBuffer;
 !!leave!!
 }
-const char* Account::GetDebugString() const
+const char* !!@name!!::GetDebugString() const
 {
 !!entry fields!!
 	sprintf(t_DataStringBuffer, "!!travel!!!!if $pumpid >= '1':!!!!inc indent!!, !!dec indent!!!!format = formats[@type]!!!!@name!!:[!!$format!!]!!leave!!",

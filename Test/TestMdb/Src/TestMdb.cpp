@@ -59,7 +59,7 @@ void TestSelectFromIndex(Mdb* mdb)
 
 	auto lowAccount = mdb->t_Account->Alloc();
 	PrepareAccount(lowAccount, 1);
-	strcpy(lowAccount->CurrencyID, "USD");
+	//strcpy(lowAccount->CurrencyID, "USD");
 	cout << "lowAccount: " << lowAccount->GetDebugString() << endl;
 	auto upAccount = mdb->t_Account->Alloc();
 	PrepareAccount(upAccount, 10);
@@ -79,7 +79,7 @@ void TestSelectFromEqualRange(Mdb* mdb)
 
 	auto account = mdb->t_Account->Alloc();
 	PrepareAccount(account, 1);
-	strcpy(account->CurrencyID, "USD");
+	//strcpy(account->CurrencyID, "USD");
 
 	auto p = mdb->t_Account->m_PrimaryAccountIndex.EqualRange(account);
 	for (auto& it = p.first; it != p.second; it++)
