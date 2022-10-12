@@ -60,24 +60,16 @@ bool !!$tableName!!LessFor!!@name!!Index::operator()(const !!$tableName!!* const
 !!if type == 'string':!!
 !!inc indent!!
 	if (strcmp(left->!!@name!!, right->!!@name!!) < 0)
-	{
 		return true;
-	}
 	else if (strcmp(left->!!@name!!, right->!!@name!!) > 0)
-	{
 		return false;
-	}
 !!dec indent!!
 !!else:!!
 !!inc indent!!
 	if (left->!!@name!! < right->!!@name!!)
-	{
 		return true;
-	}
 	else if (left->!!@name!! > right->!!@name!!)
-	{
 		return false;
-	}
 !!dec indent!!
 !!leave!!
 	return false;

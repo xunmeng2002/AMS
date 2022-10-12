@@ -7,23 +7,24 @@ using std::string;
 !!entry tables!!
 !!travel!!
 !!tableName = @name!!
-!!@name!!Table::!!@name!!Table()
+!!className = @name + 'Table'!!
+!!$className!!::!!$className!!()
 {
 }
-!!@name!!* !!@name!!Table::Alloc()
+!!@name!!* !!$className!!::Alloc()
 {
 	return m_MemCache.Allocate();
 }
-void !!@name!!Table::Free(!!@name!!* record)
+void !!$className!!::Free(!!@name!!* record)
 {
 	m_MemCache.Free(record);
 }
-bool !!@name!!Table::Insert(!!@name!!* record)
+bool !!$className!!::Insert(!!@name!!* record)
 {
 !!entry primarykeys!!
 	if (!!travel!!!!if $pumpid >= '1':!!!!inc indent!! && !!dec indent!!(!m_!!@name!!PrimaryKey.CheckInsert(record))!!leave!!)
 	{
-		printf("!!$tableName!!Table Insert Failed for !!$tableName!!:[%s]\n", record->GetString());
+		printf("!!$className!! Insert Failed for !!$tableName!!:[%s]\n", record->GetString());
 		return false;
 	}
 !!travel!!
@@ -39,13 +40,13 @@ bool !!@name!!Table::Insert(!!@name!!* record)
 
 	return true;
 }
-bool !!@name!!Table::Erase(!!@name!!* record)
+bool !!$className!!::Erase(!!@name!!* record)
 {
 !!entry primarykeys!!
 !!travel!!
 	if (!m_!!@name!!PrimaryKey.Erase(record))
 	{
-		printf("!!$tableName!!Table Erase Failed for !!$tableName!!:[%s]\n", record->GetString());
+		printf("!!$className!! Erase Failed for !!$tableName!!:[%s]\n", record->GetString());
 		return false;
 	}
 !!leave!!
@@ -59,13 +60,13 @@ bool !!@name!!Table::Erase(!!@name!!* record)
 
 	return true;
 }
-bool !!@name!!Table::Update(const !!@name!!* oldRecord, const !!@name!!* newRecord)
+bool !!$className!!::Update(const !!@name!!* oldRecord, const !!@name!!* newRecord)
 {
 !!entry primarykeys!!
 !!travel!!
 	if (!m_!!@name!!PrimaryKey.CheckUpdate(oldRecord, newRecord))
 	{
-		printf("!!$tableName!!Table Update Failed for !!$tableName!!:[%s], [%s]\n", oldRecord->GetString(), newRecord->GetString());
+		printf("!!$className!! Update Failed for !!$tableName!!:[%s], [%s]\n", oldRecord->GetString(), newRecord->GetString());
 		return false;
 	}
 !!leave!!
@@ -95,7 +96,7 @@ bool !!@name!!Table::Update(const !!@name!!* oldRecord, const !!@name!!* newReco
 	m_MemCache.Free((!!$tableName!!*)newRecord);
 	return true;
 }
-void !!@name!!Table::Dump(const char* dir)
+void !!$className!!::Dump(const char* dir)
 {
 	string fileName = string(dir) + "//t_!!@name!!.csv";
 	FILE* dumpFile = fopen(fileName.c_str(), "w");

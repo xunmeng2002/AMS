@@ -48,27 +48,28 @@ using std::unordered_set;
 !!leave!!
 !!entry primarykeys!!
 !!travel!!
-!!$tableName!!PrimaryKey!!@name!!::!!$tableName!!PrimaryKey!!@name!!(size_t buckets)
+!!className = tableName + 'PrimaryKey' + @name!!
+!!$className!!::!!$className!!(size_t buckets)
 	:m_Index(buckets), m_Select!!$tableName!!()
 {
 }
-bool !!$tableName!!PrimaryKey!!@name!!::Insert(!!$tableName!!* const record)
+bool !!$className!!::Insert(!!$tableName!!* const record)
 {
 	return m_Index.insert(record).second;
 }
-bool !!$tableName!!PrimaryKey!!@name!!::Erase(!!$tableName!!* const  record)
+bool !!$className!!::Erase(!!$tableName!!* const  record)
 {
 	return  m_Index.erase(record) > 0;
 }
-bool !!$tableName!!PrimaryKey!!@name!!::CheckInsert(!!$tableName!!* const record)
+bool !!$className!!::CheckInsert(!!$tableName!!* const record)
 {
 	return m_Index.find(record) == m_Index.end();
 }
-bool !!$tableName!!PrimaryKey!!@name!!::CheckUpdate(const !!$tableName!!* const oldRecord, const !!$tableName!!* const newRecord)
+bool !!$className!!::CheckUpdate(const !!$tableName!!* const oldRecord, const !!$tableName!!* const newRecord)
 {
 	return !!$tableName!!EqualFor!!@name!!PrimaryKey()(oldRecord, newRecord);
 }
-const !!$tableName!!* !!$tableName!!PrimaryKey!!@name!!::Select(!!travel!!!!fieldType=fieldTypes[@name]!!!!if $pumpid >= '1':!!!!inc indent!!, !!dec indent!!const C!!$fieldType!!Type& !!@name!!!!leave!!)
+const !!$tableName!!* !!$className!!::Select(!!travel!!!!fieldType=fieldTypes[@name]!!!!if $pumpid >= '1':!!!!inc indent!!, !!dec indent!!const C!!$fieldType!!Type& !!@name!!!!leave!!)
 {
 !!travel!!
 !!fieldType=fieldTypes[@name]!!
