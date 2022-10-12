@@ -13,7 +13,9 @@ using std::string;
 }
 !!@name!!* !!$className!!::Alloc()
 {
-	return m_MemCache.Allocate();
+	!!@name!!* record = m_MemCache.Allocate();
+	::memset(record, 0, sizeof(!!@name!!));
+	return record;
 }
 void !!$className!!::Free(!!@name!!* record)
 {

@@ -9,7 +9,9 @@ AccountTable::AccountTable()
 }
 Account* AccountTable::Alloc()
 {
-	return m_MemCache.Allocate();
+	Account* record = m_MemCache.Allocate();
+	::memset(record, 0, sizeof(Account));
+	return record;
 }
 void AccountTable::Free(Account* record)
 {
@@ -109,7 +111,9 @@ OrderTable::OrderTable()
 }
 Order* OrderTable::Alloc()
 {
-	return m_MemCache.Allocate();
+	Order* record = m_MemCache.Allocate();
+	::memset(record, 0, sizeof(Order));
+	return record;
 }
 void OrderTable::Free(Order* record)
 {
