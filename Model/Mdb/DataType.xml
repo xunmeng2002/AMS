@@ -15,7 +15,7 @@
 	<strings>
 		<string name="AccountID" len="32" desc="账号类型"/>
 		<string name="Date" len="9" desc="日期类型"/>
-		<string name="Time" len="8" desc="时间类型"/>
+		<string name="Time" len="9" desc="时间类型"/>
 		<string name="OrgID" len="16" desc="机构代码类型"/>
 		<string name="AccountName" len="128" desc="账号名称类型"/>
 		<string name="CurrencyID" len="8" desc="币种类型"/>

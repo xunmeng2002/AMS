@@ -63,10 +63,10 @@ public:
 	COrderStatusType OrderStatus;
 	//报单类型
 	COrderTypeType OrderType;
+	//委托数量
+	CVolumeType Volume;
 	//成交数量
 	CVolumeType VolumeTraded;
-	//剩余数量
-	CVolumeType VolumeTotal;
 	//报单日期
 	CDateType InsertDate;
 	//委托时间

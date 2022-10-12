@@ -11,7 +11,7 @@ typedef double CPriceType;
 
 typedef char CAccountIDType[32];
 typedef char CDateType[9];
-typedef char CTimeType[8];
+typedef char CTimeType[9];
 typedef char COrgIDType[16];
 typedef char CAccountNameType[128];
 typedef char CCurrencyIDType[8];
