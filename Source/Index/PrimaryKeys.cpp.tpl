@@ -69,7 +69,7 @@ bool !!$className!!::CheckUpdate(const !!$tableName!!* const oldRecord, const !!
 {
 	return !!$tableName!!EqualFor!!@name!!PrimaryKey()(oldRecord, newRecord);
 }
-const !!$tableName!!* !!$className!!::Select(!!travel!!!!fieldType=fieldTypes[@name]!!!!if $pumpid > 0:!!!!inc indent!!, !!dec indent!!const C!!$fieldType!!Type& !!@name!!!!leave!!)
+const !!$tableName!!* !!$className!!::Select(!!travel!!!!fieldType=fieldTypes[@name]!!!!if pumpid > 0:!!!!inc indent!!, !!dec indent!!const C!!$fieldType!!Type& !!@name!!!!leave!!)
 {
 !!travel!!
 !!fieldType=fieldTypes[@name]!!

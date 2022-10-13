@@ -51,11 +51,11 @@ using std::string;
 !!travel!!
 bool !!$tableName!!EqualFor!!@name!!PrimaryKey::operator()(const !!$tableName!!* const left, const !!$tableName!!* const right) const
 {
-	return !!travel!!!!if $pumpid > 0:!!!!inc indent!! && !!dec indent!!!!type = fieldTypes[@name]!!!!if type == 'string':!!!!inc indent!!strcmp(left->!!@name!!, right->!!@name!!) == 0!!dec indent!!!!else:!!!!inc indent!!left->!!@name!! == right->!!@name!!!!dec indent!!!!leave!!;
+	return !!travel!!!!if pumpid > 0:!!!!inc indent!! && !!dec indent!!!!type = fieldTypes[@name]!!!!if type == 'string':!!!!inc indent!!strcmp(left->!!@name!!, right->!!@name!!) == 0!!dec indent!!!!else:!!!!inc indent!!left->!!@name!! == right->!!@name!!!!dec indent!!!!leave!!;
 }
 size_t !!$tableName!!HashFor!!@name!!PrimaryKey::operator()(const !!$tableName!!* const record) const
 {
-	return !!travel!!!!type = fieldTypes[@name]!!!!if $pumpid > 0:!!!!inc indent!! + !!dec indent!!!!if type == 'int64':!!!!inc indent!!std::hash<long long>()(record->!!@name!!)!!dec indent!!!!elif type == 'enum':!!!!inc indent!!std::hash<char>()((char)record->!!@name!!)!!dec indent!!!!else:!!!!inc indent!!std::hash<!!$type!!>()(record->!!@name!!)!!dec indent!!!!leave!!;
+	return !!travel!!!!type = fieldTypes[@name]!!!!if pumpid > 0:!!!!inc indent!! + !!dec indent!!!!if type == 'int64':!!!!inc indent!!std::hash<long long>()(record->!!@name!!)!!dec indent!!!!elif type == 'enum':!!!!inc indent!!std::hash<char>()((char)record->!!@name!!)!!dec indent!!!!else:!!!!inc indent!!std::hash<!!$type!!>()(record->!!@name!!)!!dec indent!!!!leave!!;
 }
 
 !!leave!!

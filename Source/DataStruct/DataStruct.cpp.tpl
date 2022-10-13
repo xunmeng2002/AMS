@@ -42,16 +42,16 @@ thread_local char t_DataStringBuffer[1024];
 const char* !!@name!!::GetString() const
 {
 !!entry fields!!
-	sprintf(t_DataStringBuffer, "!!travel!!!!if $pumpid > 0:!!!!inc indent!!, !!dec indent!!!!format = formats[@type]!!!!$format!!!!leave!!",
-		!!travel!!!!if $pumpid > 0:!!!!inc indent!!, !!dec indent!!!!@name!!!!leave!!);
+	sprintf(t_DataStringBuffer, "!!travel!!!!if pumpid > 0:!!!!inc indent!!, !!dec indent!!!!format = formats[@type]!!!!$format!!!!leave!!",
+		!!travel!!!!if pumpid > 0:!!!!inc indent!!, !!dec indent!!!!@name!!!!leave!!);
 	return t_DataStringBuffer;
 !!leave!!
 }
 const char* !!@name!!::GetDebugString() const
 {
 !!entry fields!!
-	sprintf(t_DataStringBuffer, "!!travel!!!!if $pumpid > 0:!!!!inc indent!!, !!dec indent!!!!format = formats[@type]!!!!@name!!:[!!$format!!]!!leave!!",
-		!!travel!!!!if $pumpid > 0:!!!!inc indent!!, !!dec indent!!!!@name!!!!leave!!);
+	sprintf(t_DataStringBuffer, "!!travel!!!!if pumpid > 0:!!!!inc indent!!, !!dec indent!!!!format = formats[@type]!!!!@name!!:[!!$format!!]!!leave!!",
+		!!travel!!!!if pumpid > 0:!!!!inc indent!!, !!dec indent!!!!@name!!!!leave!!);
 	return t_DataStringBuffer;
 !!leave!!
 }
