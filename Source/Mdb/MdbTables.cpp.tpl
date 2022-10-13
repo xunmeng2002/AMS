@@ -24,7 +24,7 @@ void !!$className!!::Free(!!@name!!* record)
 bool !!$className!!::Insert(!!@name!!* record)
 {
 !!entry primarykeys!!
-	if (!!travel!!!!if $pumpid >= '1':!!!!inc indent!! && !!dec indent!!(!m_!!@name!!PrimaryKey.CheckInsert(record))!!leave!!)
+	if (!!travel!!!!if $pumpid > 0:!!!!inc indent!! && !!dec indent!!(!m_!!@name!!PrimaryKey.CheckInsert(record))!!leave!!)
 	{
 		printf("!!$className!! Insert Failed for !!$tableName!!:[%s]\n", record->GetString());
 		return false;
@@ -107,7 +107,7 @@ void !!$className!!::Dump(const char* dir)
 		return;
 	}
 
-	fprintf(dumpFile, "!!entry fields!!!!travel!!!!if $pumpid >= '1':!!!!inc indent!!, !!dec indent!!!!@name!!!!leave!!!!leave!!\n");
+	fprintf(dumpFile, "!!entry fields!!!!travel!!!!if $pumpid > 0:!!!!inc indent!!, !!dec indent!!!!@name!!!!leave!!!!leave!!\n");
 	char buff[4096] = { 0 };
 	for (auto it = m_DefaultPrimaryKey.m_Index.begin(); it != m_DefaultPrimaryKey.m_Index.end(); ++it)
 	{

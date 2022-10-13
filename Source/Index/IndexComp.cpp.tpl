@@ -51,7 +51,7 @@ using std::string;
 !!travel!!
 bool !!$tableName!!EqualFor!!@name!!Index::operator()(const !!$tableName!!* const left, const !!$tableName!!* const right) const
 {
-	return !!travel!!!!if $pumpid >= '1':!!!!inc indent!!&& !!dec indent!!!!type = fieldTypes[@name]!!!!if type == 'string':!!!!inc indent!!strcmp(left->!!@name!!, right->!!@name!!) == 0!!dec indent!!!!else:!!!!inc indent!!left->!!@name!! == right->!!@name!! !!dec indent!!!!leave!!;
+	return !!travel!!!!if $pumpid > 0:!!!!inc indent!!&& !!dec indent!!!!type = fieldTypes[@name]!!!!if type == 'string':!!!!inc indent!!strcmp(left->!!@name!!, right->!!@name!!) == 0!!dec indent!!!!else:!!!!inc indent!!left->!!@name!! == right->!!@name!! !!dec indent!!!!leave!!;
 }
 bool !!$tableName!!LessFor!!@name!!Index::operator()(const !!$tableName!!* const left, const !!$tableName!!* const right) const
 {
