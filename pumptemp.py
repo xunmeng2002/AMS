@@ -9,7 +9,6 @@ out_file = codecs.open("./Source/Mdb/MdbTables.cpp","w+","utf-8-sig")
 curr_node = ET.Element("root")
 curr_node.append(ET.parse("./Model/Mdb/Tables.xml").getroot())
 parent_map = {}
-pumpidlist = []
 def get_attr(node, name):
     while node != None:
         if node.get(name) == None:
@@ -33,14 +32,12 @@ parent1 = curr_node
 curr_node = curr_node.find(entry_name)
 parent_map[curr_node] = parent1
 
-pumpidlist.append(0)
 pumpid = -1
 parent2 = curr_node
 for node2 in curr_node:
     curr_node = node2
     parent_map[curr_node] = parent2
     pumpid += 1
-    pumpidlist.append(pumpid)
     tableName =  get_attr(curr_node, "name")
     className =  get_attr(curr_node, "name") + 'Table'
     out_file.write("%s" % str(className))
@@ -84,21 +81,18 @@ for node2 in curr_node:
     parent_map[curr_node] = parent3
     
     out_file.write("	if (")
-    pumpidlist.append(0)
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
         curr_node = node4
         parent_map[curr_node] = parent4
         pumpid += 1
-        pumpidlist.append(pumpid)
-        if str(pumpid) >= '1':
+        if pumpid > 0:
             out_file.write(" && ")
         out_file.write("(!m_")
         out_file.write("%s" % get_attr(curr_node, "name"))
         out_file.write("PrimaryKey.CheckInsert(record))")
         
-    pumpidlist.pop()
     if curr_node != parent4:
         curr_node = parent_map[curr_node]
     out_file.write(")\n")
@@ -111,20 +105,17 @@ for node2 in curr_node:
     out_file.write("		return false;\n")
     out_file.write("	}\n")
     out_file.write("")
-    pumpidlist.append(0)
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
         curr_node = node4
         parent_map[curr_node] = parent4
         pumpid += 1
-        pumpidlist.append(pumpid)
         out_file.write("	m_")
         out_file.write("%s" % get_attr(curr_node, "name"))
         out_file.write("PrimaryKey.Insert(record);\n")
         out_file.write("")
         
-    pumpidlist.pop()
     if curr_node != parent4:
         curr_node = parent_map[curr_node]
     
@@ -136,20 +127,17 @@ for node2 in curr_node:
     curr_node = curr_node.find(entry_name)
     parent_map[curr_node] = parent3
     
-    pumpidlist.append(0)
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
         curr_node = node4
         parent_map[curr_node] = parent4
         pumpid += 1
-        pumpidlist.append(pumpid)
         out_file.write("	m_")
         out_file.write("%s" % get_attr(curr_node, "name"))
         out_file.write("Index.Insert(record);\n")
         out_file.write("")
         
-    pumpidlist.pop()
     if curr_node != parent4:
         curr_node = parent_map[curr_node]
     
@@ -169,14 +157,12 @@ for node2 in curr_node:
     curr_node = curr_node.find(entry_name)
     parent_map[curr_node] = parent3
     
-    pumpidlist.append(0)
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
         curr_node = node4
         parent_map[curr_node] = parent4
         pumpid += 1
-        pumpidlist.append(pumpid)
         out_file.write("	if (!m_")
         out_file.write("%s" % get_attr(curr_node, "name"))
         out_file.write("PrimaryKey.Erase(record))\n")
@@ -190,7 +176,6 @@ for node2 in curr_node:
         out_file.write("	}\n")
         out_file.write("")
         
-    pumpidlist.pop()
     if curr_node != parent4:
         curr_node = parent_map[curr_node]
     
@@ -202,20 +187,17 @@ for node2 in curr_node:
     curr_node = curr_node.find(entry_name)
     parent_map[curr_node] = parent3
     
-    pumpidlist.append(0)
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
         curr_node = node4
         parent_map[curr_node] = parent4
         pumpid += 1
-        pumpidlist.append(pumpid)
         out_file.write("	m_")
         out_file.write("%s" % get_attr(curr_node, "name"))
         out_file.write("Index.Erase(record);\n")
         out_file.write("")
         
-    pumpidlist.pop()
     if curr_node != parent4:
         curr_node = parent_map[curr_node]
     
@@ -237,14 +219,12 @@ for node2 in curr_node:
     curr_node = curr_node.find(entry_name)
     parent_map[curr_node] = parent3
     
-    pumpidlist.append(0)
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
         curr_node = node4
         parent_map[curr_node] = parent4
         pumpid += 1
-        pumpidlist.append(pumpid)
         out_file.write("	if (!m_")
         out_file.write("%s" % get_attr(curr_node, "name"))
         out_file.write("PrimaryKey.CheckUpdate(oldRecord, newRecord))\n")
@@ -258,7 +238,6 @@ for node2 in curr_node:
         out_file.write("	}\n")
         out_file.write("")
         
-    pumpidlist.pop()
     if curr_node != parent4:
         curr_node = parent_map[curr_node]
     
@@ -270,14 +249,12 @@ for node2 in curr_node:
     curr_node = curr_node.find(entry_name)
     parent_map[curr_node] = parent3
     
-    pumpidlist.append(0)
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
         curr_node = node4
         parent_map[curr_node] = parent4
         pumpid += 1
-        pumpidlist.append(pumpid)
         out_file.write("	bool ")
         out_file.write("%s" % get_attr(curr_node, "name"))
         out_file.write("IndexUpdate = m_")
@@ -295,7 +272,6 @@ for node2 in curr_node:
         out_file.write("	}\n")
         out_file.write("")
         
-    pumpidlist.pop()
     if curr_node != parent4:
         curr_node = parent_map[curr_node]
     
@@ -311,14 +287,12 @@ for node2 in curr_node:
     curr_node = curr_node.find(entry_name)
     parent_map[curr_node] = parent3
     
-    pumpidlist.append(0)
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
         curr_node = node4
         parent_map[curr_node] = parent4
         pumpid += 1
-        pumpidlist.append(pumpid)
         out_file.write("	if (")
         out_file.write("%s" % get_attr(curr_node, "name"))
         out_file.write("IndexUpdate)\n")
@@ -331,7 +305,6 @@ for node2 in curr_node:
         out_file.write("	}\n")
         out_file.write("")
         
-    pumpidlist.pop()
     if curr_node != parent4:
         curr_node = parent_map[curr_node]
     
@@ -361,19 +334,16 @@ for node2 in curr_node:
     curr_node = curr_node.find(entry_name)
     parent_map[curr_node] = parent3
     
-    pumpidlist.append(0)
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
         curr_node = node4
         parent_map[curr_node] = parent4
         pumpid += 1
-        pumpidlist.append(pumpid)
-        if str(pumpid) >= '1':
+        if pumpid > 0:
             out_file.write(", ")
         out_file.write("%s" % get_attr(curr_node, "name"))
         
-    pumpidlist.pop()
     if curr_node != parent4:
         curr_node = parent_map[curr_node]
     
@@ -389,7 +359,6 @@ for node2 in curr_node:
     out_file.write("\n")
     out_file.write("")
     
-pumpidlist.pop()
 if curr_node != parent2:
     curr_node = parent_map[curr_node]
 
