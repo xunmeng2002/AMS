@@ -8,7 +8,10 @@ struct !!@name!!
 public:
 !!entry fields!!
 !!travel!!
+!!if @desc != '':!!
+!!inc indent!!
 	//!!@desc!!
+!!dec indent!!
 	C!!@type!!Type !!@name!!;
 !!leave!!
 !!leave!!
