@@ -1,7 +1,7 @@
 #pragma once
 #include <unordered_set>
 #include "DataStruct.h"
-#include "PrimaryKeyComp.h"
+#include "UniqueKeyComp.h"
 
 
 !!entry tables!!
@@ -13,12 +13,13 @@
 !!fieldTypes[@name] = @type!!
 !!leave!!
 !!leave!!
-!!entry primarykey!!
-class !!$tableName!!PrimaryKey
+!!entry uniquekeys!!
+!!travel!!
+class !!$tableName!!UniqueKey!!@name!!
 {
 	friend class !!$tableName!!Table;
 public:
-	!!$tableName!!PrimaryKey(size_t buckets = 1000);
+	!!$tableName!!UniqueKey!!@name!!(size_t buckets = 1000);
 	bool Insert(!!$tableName!!* const record);
 	bool Erase(!!$tableName!!* const record);
 	bool CheckInsert(!!$tableName!!* const record);
@@ -27,9 +28,10 @@ public:
 
 private:
 	!!$tableName!! m_Select!!$tableName!!;
-	std::unordered_set<!!$tableName!!*, !!$tableName!!HashFor!!@name!!PrimaryKey, !!$tableName!!EqualFor!!@name!!PrimaryKey> m_Index;
+	std::unordered_set<!!$tableName!!*, !!$tableName!!HashFor!!@name!!UniqueKey, !!$tableName!!EqualFor!!@name!!UniqueKey> m_Index;
 };
 
+!!leave!!
 !!leave!!
 !!leave!!
 !!leave!!

@@ -75,36 +75,42 @@ for node2 in curr_node:
     out_file.write("* record)\n")
     out_file.write("{\n")
     out_file.write("")
-    entry_name = "primarykeys"
+    entry_name = "uniquekeys"
     parent3 = curr_node
     curr_node = curr_node.find(entry_name)
     parent_map[curr_node] = parent3
     
-    out_file.write("	if (")
+    out_file.write("	if (!m_PrimaryKey.CheckInsert(record)")
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
         curr_node = node4
         parent_map[curr_node] = parent4
         pumpid += 1
-        if pumpid > 0:
-            out_file.write(" && ")
-        out_file.write("(!m_")
+        out_file.write(" && !m_")
         out_file.write("%s" % get_attr(curr_node, "name"))
-        out_file.write("PrimaryKey.CheckInsert(record))")
+        out_file.write("UniqueKey.CheckInsert(record)")
         
     if curr_node != parent4:
         curr_node = parent_map[curr_node]
     out_file.write(")\n")
     out_file.write("	{\n")
-    out_file.write("		printf(\"")
-    out_file.write("%s" % str(className))
-    out_file.write(" Insert Failed for ")
+    out_file.write("		printf(\"Insert Failed for ")
     out_file.write("%s" % str(tableName))
     out_file.write(":[%s]\\n\", record->GetString());\n")
     out_file.write("		return false;\n")
     out_file.write("	}\n")
     out_file.write("")
+    
+    curr_node = parent_map[curr_node]
+    out_file.write("\n")
+    out_file.write("	m_PrimaryKey.Insert(record);\n")
+    out_file.write("")
+    entry_name = "uniquekeys"
+    parent3 = curr_node
+    curr_node = curr_node.find(entry_name)
+    parent_map[curr_node] = parent3
+    
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
@@ -113,7 +119,7 @@ for node2 in curr_node:
         pumpid += 1
         out_file.write("	m_")
         out_file.write("%s" % get_attr(curr_node, "name"))
-        out_file.write("PrimaryKey.Insert(record);\n")
+        out_file.write("UniqueKey.Insert(record);\n")
         out_file.write("")
         
     if curr_node != parent4:
@@ -152,32 +158,32 @@ for node2 in curr_node:
     out_file.write("* record)\n")
     out_file.write("{\n")
     out_file.write("")
-    entry_name = "primarykeys"
+    entry_name = "uniquekeys"
     parent3 = curr_node
     curr_node = curr_node.find(entry_name)
     parent_map[curr_node] = parent3
     
+    out_file.write("	if (!m_PrimaryKey.Erase(record)")
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
         curr_node = node4
         parent_map[curr_node] = parent4
         pumpid += 1
-        out_file.write("	if (!m_")
+        out_file.write(" && !m_")
         out_file.write("%s" % get_attr(curr_node, "name"))
-        out_file.write("PrimaryKey.Erase(record))\n")
-        out_file.write("	{\n")
-        out_file.write("		printf(\"")
-        out_file.write("%s" % str(className))
-        out_file.write(" Erase Failed for ")
-        out_file.write("%s" % str(tableName))
-        out_file.write(":[%s]\\n\", record->GetString());\n")
-        out_file.write("		return false;\n")
-        out_file.write("	}\n")
-        out_file.write("")
+        out_file.write("UniqueKey.Erase(record)")
         
     if curr_node != parent4:
         curr_node = parent_map[curr_node]
+    out_file.write(")\n")
+    out_file.write("	{\n")
+    out_file.write("		printf(\"Erase Failed for ")
+    out_file.write("%s" % str(tableName))
+    out_file.write(":[%s]\\n\", record->GetString());\n")
+    out_file.write("		return false;\n")
+    out_file.write("	}\n")
+    out_file.write("")
     
     curr_node = parent_map[curr_node]
     out_file.write("\n")
@@ -214,32 +220,32 @@ for node2 in curr_node:
     out_file.write("* newRecord)\n")
     out_file.write("{\n")
     out_file.write("")
-    entry_name = "primarykeys"
+    entry_name = "uniquekeys"
     parent3 = curr_node
     curr_node = curr_node.find(entry_name)
     parent_map[curr_node] = parent3
     
+    out_file.write("	if (!m_PrimaryKey.CheckUpdate(oldRecord, newRecord)")
     pumpid = -1
     parent4 = curr_node
     for node4 in curr_node:
         curr_node = node4
         parent_map[curr_node] = parent4
         pumpid += 1
-        out_file.write("	if (!m_")
+        out_file.write(" && !m_")
         out_file.write("%s" % get_attr(curr_node, "name"))
-        out_file.write("PrimaryKey.CheckUpdate(oldRecord, newRecord))\n")
-        out_file.write("	{\n")
-        out_file.write("		printf(\"")
-        out_file.write("%s" % str(className))
-        out_file.write(" Update Failed for ")
-        out_file.write("%s" % str(tableName))
-        out_file.write(":[%s], [%s]\\n\", oldRecord->GetString(), newRecord->GetString());\n")
-        out_file.write("		return false;\n")
-        out_file.write("	}\n")
-        out_file.write("")
+        out_file.write("UniqueKey.CheckUpdate(oldRecord, newRecord)")
         
     if curr_node != parent4:
         curr_node = parent_map[curr_node]
+    out_file.write(")\n")
+    out_file.write("	{\n")
+    out_file.write("		printf(\"Update Failed for ")
+    out_file.write("%s" % str(tableName))
+    out_file.write(":[%s], [%s]\\n\", oldRecord->GetString(), newRecord->GetString());\n")
+    out_file.write("		return false;\n")
+    out_file.write("	}\n")
+    out_file.write("")
     
     curr_node = parent_map[curr_node]
     out_file.write("\n")
@@ -350,7 +356,7 @@ for node2 in curr_node:
     curr_node = parent_map[curr_node]
     out_file.write("\\n\");\n")
     out_file.write("	char buff[4096] = { 0 };\n")
-    out_file.write("	for (auto it = m_DefaultPrimaryKey.m_Index.begin(); it != m_DefaultPrimaryKey.m_Index.end(); ++it)\n")
+    out_file.write("	for (auto it = m_PrimaryKey.m_Index.begin(); it != m_PrimaryKey.m_Index.end(); ++it)\n")
     out_file.write("	{\n")
     out_file.write("		fprintf(dumpFile, \"%s\\n\", (*it)->GetString());\n")
     out_file.write("	}\n")

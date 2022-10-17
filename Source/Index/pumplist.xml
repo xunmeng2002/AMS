@@ -1,13 +1,16 @@
 <pumplist>
-	<pump dest="./Source/Index/IndexComp.h" tpl="./Source/Index/IndexComp.h.tpl" model="./Model/Mdb/Tables.xml"/>
-	<pump dest="./Source/Index/IndexComp.cpp" tpl="./Source/Index/IndexComp.cpp.tpl" model="./Model/Mdb/Tables.xml ./Model/Mdb/DataType.xml"/>
-	
-	<pump dest="./Source/Index/Indexes.h" tpl="./Source/Index/Indexes.h.tpl" model="./Model/Mdb/Tables.xml"/>
-	<pump dest="./Source/Index/Indexes.cpp" tpl="./Source/Index/Indexes.cpp.tpl" model="./Model/Mdb/Tables.xml"/>
-	
 	<pump dest="./Source/Index/PrimaryKeyComp.h" tpl="./Source/Index/PrimaryKeyComp.h.tpl" model="./Model/Mdb/Tables.xml"/>
 	<pump dest="./Source/Index/PrimaryKeyComp.cpp" tpl="./Source/Index/PrimaryKeyComp.cpp.tpl" model="./Model/Mdb/Tables.xml ./Model/Mdb/DataType.xml"/>
-	
 	<pump dest="./Source/Index/PrimaryKeys.h" tpl="./Source/Index/PrimaryKeys.h.tpl" model="./Model/Mdb/Tables.xml"/>
 	<pump dest="./Source/Index/PrimaryKeys.cpp" tpl="./Source/Index/PrimaryKeys.cpp.tpl" model="./Model/Mdb/Tables.xml ./Model/Mdb/DataType.xml"/>
+
+	<pump dest="./Source/Index/UniqueKeyComp.h" tpl="./Source/Index/UniqueKeyComp.h.tpl" model="./Model/Mdb/Tables.xml"/>
+	<pump dest="./Source/Index/UniqueKeyComp.cpp" tpl="./Source/Index/UniqueKeyComp.cpp.tpl" model="./Model/Mdb/Tables.xml ./Model/Mdb/DataType.xml"/>
+	<pump dest="./Source/Index/UniqueKeys.h" tpl="./Source/Index/UniqueKeys.h.tpl" model="./Model/Mdb/Tables.xml"/>
+	<pump dest="./Source/Index/UniqueKeys.cpp" tpl="./Source/Index/UniqueKeys.cpp.tpl" model="./Model/Mdb/Tables.xml ./Model/Mdb/DataType.xml"/>
+	
+	<pump dest="./Source/Index/IndexComp.h" tpl="./Source/Index/IndexComp.h.tpl" model="./Model/Mdb/Tables.xml"/>
+	<pump dest="./Source/Index/IndexComp.cpp" tpl="./Source/Index/IndexComp.cpp.tpl" model="./Model/Mdb/Tables.xml ./Model/Mdb/DataType.xml"/>
+	<pump dest="./Source/Index/Indexes.h" tpl="./Source/Index/Indexes.h.tpl" model="./Model/Mdb/Tables.xml"/>
+	<pump dest="./Source/Index/Indexes.cpp" tpl="./Source/Index/Indexes.cpp.tpl" model="./Model/Mdb/Tables.xml"/>
 </pumplist>

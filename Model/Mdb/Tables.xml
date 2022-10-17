@@ -12,18 +12,18 @@
 			<field name="CurrencyID" type="CurrencyID" desc="币种代码"/>
 			<field name="DeleteFlag" type="Bool" desc="删除标志"/>
 		</fields>
-		<primarykeys name="Default">
-			<primarykey>
-				<field name="BrokerID"/>
-				<field name="AccountID"/>
-				<field name="AccountClass"/>
-			</primarykey>
-			<primarykey name="PrimaryAccount">
+		<primarykey>
+			<field name="BrokerID"/>
+			<field name="AccountID"/>
+			<field name="AccountClass"/>
+		</primarykey>
+		<uniquekeys>
+			<uniquekey name="PrimaryAccount">
 				<field name="BrokerID"/>
 				<field name="PrimaryAccountID"/>
 				<field name="AccountClass"/>
-			</primarykey>
-		</primarykeys>
+			</uniquekey>
+		</uniquekeys>
 		<indexes>
 			<index name="PrimaryAccount">
 				<field name="BrokerID"/>
@@ -59,15 +59,14 @@
 			<field name="InsertDate" type="Date" desc="报单日期"/>
 			<field name="InsertTime" type="Time" desc="委托时间"/>
 		</fields>
-		<primarykeys name="Default">
-			<primarykey>
-				<field name="BrokerID"/>
-				<field name="AccountID"/>
-				<field name="AccountClass"/>
-				<field name="InsertDate"/>
-				<field name="OrderLocalID"/>
-			</primarykey>
-		</primarykeys>
+		<primarykey>
+			<field name="BrokerID"/>
+			<field name="AccountID"/>
+			<field name="AccountClass"/>
+			<field name="InsertDate"/>
+			<field name="OrderLocalID"/>
+		</primarykey>
+		<uniquekeys></uniquekeys>
 		<indexes>
 			<index name="PrimaryAccount">
 				<field name="BrokerID"/>

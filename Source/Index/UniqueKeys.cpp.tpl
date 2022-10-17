@@ -1,4 +1,4 @@
-#include "PrimaryKeys.h"
+#include "UniqueKeys.h"
 
 using std::unordered_set;
 
@@ -46,8 +46,9 @@ using std::unordered_set;
 !!fieldTypes[@name] = @type!!
 !!leave!!
 !!leave!!
-!!entry primarykey!!
-!!className = tableName + 'PrimaryKey'!!
+!!entry uniquekeys!!
+!!travel!!
+!!className = tableName + 'UniqueKey' + @name!!
 !!$className!!::!!$className!!(size_t buckets)
 	:m_Index(buckets), m_Select!!$tableName!!()
 {
@@ -66,7 +67,7 @@ bool !!$className!!::CheckInsert(!!$tableName!!* const record)
 }
 bool !!$className!!::CheckUpdate(const !!$tableName!!* const oldRecord, const !!$tableName!!* const newRecord)
 {
-	return !!$tableName!!EqualFor!!@name!!PrimaryKey()(oldRecord, newRecord);
+	return !!$tableName!!EqualFor!!@name!!UniqueKey()(oldRecord, newRecord);
 }
 const !!$tableName!!* !!$className!!::Select(!!travel!!!!fieldType=fieldTypes[@name]!!!!if pumpid > 0:!!!!inc indent!!, !!dec indent!!const C!!$fieldType!!Type& !!@name!!!!leave!!)
 {
@@ -92,6 +93,7 @@ const !!$tableName!!* !!$className!!::Select(!!travel!!!!fieldType=fieldTypes[@n
 }
 
 
+!!leave!!
 !!leave!!
 !!leave!!
 !!leave!!

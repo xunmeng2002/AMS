@@ -23,14 +23,18 @@ void !!$className!!::Free(!!@name!!* record)
 }
 bool !!$className!!::Insert(!!@name!!* record)
 {
-!!entry primarykeys!!
-	if (!!travel!!!!if pumpid > 0:!!!!inc indent!! && !!dec indent!!(!m_!!@name!!PrimaryKey.CheckInsert(record))!!leave!!)
+!!entry uniquekeys!!
+	if (!m_PrimaryKey.CheckInsert(record)!!travel!! && !m_!!@name!!UniqueKey.CheckInsert(record)!!leave!!)
 	{
-		printf("!!$className!! Insert Failed for !!$tableName!!:[%s]\n", record->GetString());
+		printf("Insert Failed for !!$tableName!!:[%s]\n", record->GetString());
 		return false;
 	}
+!!leave!!
+
+	m_PrimaryKey.Insert(record);
+!!entry uniquekeys!!
 !!travel!!
-	m_!!@name!!PrimaryKey.Insert(record);
+	m_!!@name!!UniqueKey.Insert(record);
 !!leave!!
 !!leave!!
 
@@ -44,14 +48,12 @@ bool !!$className!!::Insert(!!@name!!* record)
 }
 bool !!$className!!::Erase(!!@name!!* record)
 {
-!!entry primarykeys!!
-!!travel!!
-	if (!m_!!@name!!PrimaryKey.Erase(record))
+!!entry uniquekeys!!
+	if (!m_PrimaryKey.Erase(record)!!travel!! && !m_!!@name!!UniqueKey.Erase(record)!!leave!!)
 	{
-		printf("!!$className!! Erase Failed for !!$tableName!!:[%s]\n", record->GetString());
+		printf("Erase Failed for !!$tableName!!:[%s]\n", record->GetString());
 		return false;
 	}
-!!leave!!
 !!leave!!
 
 !!entry indexes!!
@@ -64,14 +66,12 @@ bool !!$className!!::Erase(!!@name!!* record)
 }
 bool !!$className!!::Update(const !!@name!!* oldRecord, const !!@name!!* newRecord)
 {
-!!entry primarykeys!!
-!!travel!!
-	if (!m_!!@name!!PrimaryKey.CheckUpdate(oldRecord, newRecord))
+!!entry uniquekeys!!
+	if (!m_PrimaryKey.CheckUpdate(oldRecord, newRecord)!!travel!! && !m_!!@name!!UniqueKey.CheckUpdate(oldRecord, newRecord)!!leave!!)
 	{
-		printf("!!$className!! Update Failed for !!$tableName!!:[%s], [%s]\n", oldRecord->GetString(), newRecord->GetString());
+		printf("Update Failed for !!$tableName!!:[%s], [%s]\n", oldRecord->GetString(), newRecord->GetString());
 		return false;
 	}
-!!leave!!
 !!leave!!
 
 !!entry indexes!!
@@ -109,7 +109,7 @@ void !!$className!!::Dump(const char* dir)
 
 	fprintf(dumpFile, "!!entry fields!!!!travel!!!!if pumpid > 0:!!!!inc indent!!, !!dec indent!!!!@name!!!!leave!!!!leave!!\n");
 	char buff[4096] = { 0 };
-	for (auto it = m_DefaultPrimaryKey.m_Index.begin(); it != m_DefaultPrimaryKey.m_Index.end(); ++it)
+	for (auto it = m_PrimaryKey.m_Index.begin(); it != m_PrimaryKey.m_Index.end(); ++it)
 	{
 		fprintf(dumpFile, "%s\n", (*it)->GetString());
 	}

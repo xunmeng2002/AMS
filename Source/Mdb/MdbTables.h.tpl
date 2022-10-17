@@ -1,6 +1,7 @@
 #pragma once
 #include "DataStruct.h"
 #include "PrimaryKeys.h"
+#include "UniqueKeys.h"
 #include "Indexes.h"
 #include "MemCacheTemplate.h"
 
@@ -20,9 +21,11 @@ public:
 	void Dump(const char* dir);
 
 public:
-!!entry primarykeys!!
+	!!$tableName!!PrimaryKey m_PrimaryKey;
+
+!!entry uniquekeys!!
 !!travel!!
-	!!$tableName!!PrimaryKey!!@name!! m_!!@name!!PrimaryKey;
+	!!$tableName!!UniqueKey!!@name!! m_!!@name!!UniqueKey;
 !!leave!!
 !!leave!!
 
