@@ -1,0 +1,15 @@
+﻿SET(PROJECT_NAME "TestProcessPool")
+project(${PROJECT_NAME})
+message("PROJECT_NAME:" ${PROJECT_NAME})
+
+add_package(Src ./Src)
+add_package(Event ${CMAKE_SOURCE_DIR}/Source/Event)
+add_package(Logger ${CMAKE_SOURCE_DIR}/Source/Logger)
+add_package(ThreadBase ${CMAKE_SOURCE_DIR}/Source/ThreadBase)
+add_package(MemCache ${CMAKE_SOURCE_DIR}/Source/MemCache)
+add_package(Utility ${CMAKE_SOURCE_DIR}/Source/Utility)
+
+if(CMAKE_SYSTEM_NAME MATCHES "Linux")
+	add_executable(${PROJECT_NAME} ${all_file})
+	target_link_libraries(${PROJECT_NAME} pthread)
+endif()

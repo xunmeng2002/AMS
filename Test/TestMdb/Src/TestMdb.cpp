@@ -1,10 +1,11 @@
 #include <iostream>
 #include "DataStruct.h"
+#include "Dir.h"
 #include "Mdb.h"
 #include "MdbTables.h"
 #include "TimeUtility.h"
-#include <string>
-#include <direct.h>
+#include <string.h>
+
 
 using namespace std;
 
@@ -98,10 +99,13 @@ void TestAccountTable(Mdb* mdb)
 		PrepareAccount(account, 1);
 		mdb->t_Account->Insert(account);
 	}
-
-	SelectAccount(mdb, 1, CAccountIDType("1"), CAccountClassType::Future);
-	SelectAccount(mdb, 2, CAccountIDType("3"), CAccountClassType::Future);
-	SelectAccount(mdb, 3, CAccountIDType("3"), CAccountClassType::Future);
+	CAccountIDType accountID;
+	strcpy(accountID, "1");
+	SelectAccount(mdb, 1, accountID, CAccountClassType::Future);
+	strcpy(accountID, "2");
+	SelectAccount(mdb, 2, accountID, CAccountClassType::Future);
+	strcpy(accountID, "3");
+	SelectAccount(mdb, 3, accountID, CAccountClassType::Future);
 
 	TestUpdateAccount(mdb);
 
@@ -219,10 +223,13 @@ void TestOrderTable(Mdb* mdb)
 		mdb->t_Order->Insert(order);
 	}
 	
-
-	SelectOrder(mdb, 1, CAccountIDType("1"), CAccountClassType::Future, "20221012", 1);
-	SelectOrder(mdb, 2, CAccountIDType("3"), CAccountClassType::Future, "20221012", 2);
-	SelectOrder(mdb, 3, CAccountIDType("3"), CAccountClassType::Future, "20221012", 3);
+	CAccountIDType accountID;
+	strcpy(accountID, "1");
+	SelectOrder(mdb, 1, accountID, CAccountClassType::Future, "20221012", 1);
+	strcpy(accountID, "2");
+	SelectOrder(mdb, 2, accountID, CAccountClassType::Future, "20221012", 2);
+	strcpy(accountID, "3");
+	SelectOrder(mdb, 3, accountID, CAccountClassType::Future, "20221012", 3);
 
 	TestUpdateOrder(mdb);
 
@@ -242,10 +249,12 @@ int main()
 	char path[128] = { 0 };
 	sprintf(path, "%s", dateTime.c_str());
 
-	auto ret = mkdir(path);
-	if (ret != 0)
+	if (!Dir::IsDir(path))
 	{
-		printf("mkdir Failed for: %s, ret:%d\n", path, ret);
+		if (!Dir::Create(path))
+		{
+			printf("mkdir Failed for: %s\n", path);
+		}
 	}
 	mdb->Dump(dateTime.c_str());
 	return 0;

@@ -6,8 +6,14 @@ add_package(Src ./Src)
 add_package(Utility ${CMAKE_SOURCE_DIR}/Source/Utility)
 add_package(MemCache ${CMAKE_SOURCE_DIR}/Source/MemCache)
 add_package(DataStruct ${CMAKE_SOURCE_DIR}/Source/DataStruct)
+add_package(Dir ${CMAKE_SOURCE_DIR}/Source/Dir)
 add_package(Index ${CMAKE_SOURCE_DIR}/Source/Index)
 add_package(Mdb ${CMAKE_SOURCE_DIR}/Source/Mdb)
 
 
 add_executable(${PROJECT_NAME} ${all_file})
+
+if(CMAKE_SYSTEM_NAME MATCHES "Linux")
+	target_link_libraries(${PROJECT_NAME} pthread)
+endif()
+
