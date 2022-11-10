@@ -1,5 +1,6 @@
 #include "UniqueKeyComp.h"
 #include <string>
+#include <string.h>
 #include <functional>
 
 using std::string;

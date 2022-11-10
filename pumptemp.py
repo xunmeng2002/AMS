@@ -22,6 +22,7 @@ def get_attr(node, name):
 
 out_file.write("#include \"MdbTables.h\"\n")
 out_file.write("#include <string>\n")
+out_file.write("#include <string.h>\n")
 out_file.write("\n")
 out_file.write("using std::string;\n")
 out_file.write("\n")

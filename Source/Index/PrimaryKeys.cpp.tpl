@@ -1,4 +1,5 @@
 #include "PrimaryKeys.h"
+#include <string.h>
 
 using std::unordered_set;
 

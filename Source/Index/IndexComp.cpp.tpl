@@ -1,7 +1,5 @@
 #include "IndexComp.h"
-#include <string>
-
-using std::string;
+#include <string.h>
 
 !!types={}!!
 !!entry types!!

@@ -1,5 +1,6 @@
 #include "MdbTables.h"
 #include <string>
+#include <string.h>
 
 using std::string;
 

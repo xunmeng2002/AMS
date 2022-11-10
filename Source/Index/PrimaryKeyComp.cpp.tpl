@@ -1,4 +1,5 @@
 #include "PrimaryKeyComp.h"
+#include <string.h>
 #include <string>
 #include <functional>
 
